@@ -1,0 +1,6 @@
+{
+  "name": "RoboCodo - 3D Robot Simulation & Coding",
+  "description": "Інтерактивне освітнє 3D середовище для програмування роботів блоками (Blockly) та Python з фізикою Cannon-es.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

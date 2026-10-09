@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Довідник команд Python - RoboCodo</title>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-main: #F4F5F8;
+            --bg-panel: #FFFFFF;
+            --text-main: #2C3440;
+            --text-muted: #8591A5;
+            --accent: #4C97FF;
+            --border: #E1E5EB;
+        }
+        body {
+            font-family: 'Nunito', sans-serif;
+            background: var(--bg-main);
+            color: var(--text-main);
+            margin: 0;
+            padding: 30px;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            background: var(--bg-panel);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid var(--border);
+        }
+        h1 { color: var(--accent); font-weight: 900; margin-top: 0; text-align: center; font-size: 26px; }
+        h2 { color: #575E75; border-bottom: 2px solid var(--border); padding-bottom: 8px; margin-top: 24px; font-size: 18px; }
+        code {
+            background: #E8F0FE;
+            color: #1A73E8;
+            padding: 3px 6px;
+            border-radius: 6px;
+            font-family: 'Courier New', Courier, monospace;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .command-block {
+            background: #F9FAFC;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--accent);
+            padding: 12px 16px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .command-block p { margin: 4px 0 0 0; color: var(--text-muted); font-size: 13px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐍 Довідник команд Python (Scratch & VEX)</h1>
+        <p style="text-align: center; color: var(--text-muted); font-size: 15px;">Повний перелік команд для керування роботом RoboCodo у Python.</p>
+        
+        <h2>🚶 Scratch Рух (Motion)</h2>
+        <div class="command-block">
+            <code>robot.move_steps(10)</code>
+            <p>Перемістити робота вперед на зазначену кількість кроків у напрямку погляду (1 крок = 10 мм).</p>
+        </div>
+        <div class="command-block">
+            <code>robot.turn_angle('RIGHT', 15)</code> / <code>robot.turn_right(15)</code>
+            <p>Повернути праворуч (за годинниковою стрілкою ↻) на зазначену кількість градусів.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.turn_angle('LEFT', 15)</code> / <code>robot.turn_left(15)</code>
+            <p>Повернути ліворуч (проти годинникової стрілки ↺) на зазначену кількість градусів.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.turn_to_heading(90)</code> / <code>robot.point_in_direction(90)</code>
+            <p>Повернути в абсолютний напрямок: <code>0°</code> = вгору (північ), <code>90°</code> = праворуч (схід), <code>180°</code> = вниз (південь), <code>-90° (270°)</code> = ліворуч (захід).</p>
+        </div>
+        <div class="command-block">
+            <code>robot.point_towards('obstacle')</code>
+            <p>Повернути робота прямо на перешкоду або в напрямку цілі.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.goto_xz(x, z)</code>
+            <p>Миттєво перемістити робота в задані координати.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.glide_to_xz(secs, x, z)</code>
+            <p>Плавно ковзати протягом зазначеного часу до координат X та Z.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.change_x(10)</code> / <code>robot.set_x(0)</code>
+            <p>Змінити або встановити координату X.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.change_z(10)</code> / <code>robot.set_z(0)</code>
+            <p>Змінити або встановити координату Z (вперед/назад).</p>
+        </div>
+        <div class="command-block">
+            <code>robot.bounce_on_edge()</code>
+            <p>Якщо робот торкається межі карти — автоматично відбитися і розвернутися зі звуком.</p>
+        </div>
+
+        <h2>💬 Scratch Вигляд (Looks)</h2>
+        <div class="command-block">
+            <code>robot.say("Привіт!", 2)</code>
+            <p>Показати 3D хмаринку репліки над роботом на задану кількість секунд.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.set_size(150)</code> / <code>robot.change_size(10)</code>
+            <p>Встановити або змінити масштаб 3D моделі робота у відсотках.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.show()</code> / <code>robot.hide()</code>
+            <p>Показати або сховати робота на 3D сцені.</p>
+        </div>
+
+        <h2>🔊 Scratch Звуки (Sound)</h2>
+        <div class="command-block">
+            <code>robot.play_sound('beep')</code>, <code>'pop'</code>, <code>'jump'</code>, <code>'laser'</code>, <code>'coin'</code>
+            <p>Відтворити звуковий ефект через синтезатор Web Audio API.</p>
+        </div>
+
+        <h2>🖍️ Перо (Pen)</h2>
+        <div class="command-block">
+            <code>robot.set_pen('DOWN')</code> / <code>robot.set_pen_down(True)</code>
+            <p>Опустити перо для малювання сліду на полі.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.set_pen_color('GREEN')</code> або <code>robot.set_pen_color('#4C97FF')</code>
+            <p>Встановити колір пера.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.set_pen_width(8)</code>
+            <p>Встановити товщину лінії.</p>
+        </div>
+
+        <h2>👀 Датчики та Сенсори</h2>
+        <div class="command-block">
+            <code>robot.is_touching('obstacle')</code> / <code>'edge'</code>
+            <p>Повертає True, якщо робот торкається перешкоди або межі майданчика.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.get_distance('FRONT', 'MM')</code>
+            <p>Виміряти дистанцію до найближчого об'єкта лазерним далекоміром.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.get_angle()</code>
+            <p>Отримати поточний кут повороту робота.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.get_loc('X', 'MM')</code> / <code>robot.get_loc('Z', 'MM')</code>
+            <p>Отримати позицію робота у міліметрах.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.jump()</code>
+            <p>Підстрибнути вгору.</p>
+        </div>
+        <div class="command-block">
+            <code>robot.reset()</code>
+            <p>Скинути позицію на стартову.</p>
+        </div>
+    </div>
+</body>
+</html>
